@@ -3,30 +3,28 @@ import {connect} from "react-redux";
 import Input from "../components/Input";
 import {changeField} from "../ducks/Input";
 
-const InputContainer = props =>
-    connect(
-        state => ({
-            value: state[props.name],
-        }),
+const InputContainer = connect(
+        undefined,
         dispatch => ({
-            onChange: event =>
-                dispatch(
-                    changeField(
-                        name,
-                        event.target.type === 'checkbox'
-                            ? event.target.checked
-                            : event.target.value,
-                    )),
+            dispatch,
         }),
         (state, dispatch, own) => ({
             // Pass in received props first so props defined here overwrite any preexisting ones.
             ...own,
             ...state,
-            ...dispatch,
+            value: state[own.name],
+            onChange: event =>
+                dispatch.dispatch(
+                    changeField(
+                        own.name,
+                        event.target.type === 'checkbox'
+                            ? event.target.checked
+                            : event.target.value,
+                    )),
         }),
     )(Input);
 
-Input.propTypes = {
+InputContainer.propTypes = {
     name: PropTypes.string.isRequired,
 };
 
