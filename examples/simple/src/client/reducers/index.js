@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import customerName from '../../../../../dist/es/Input/ducks/Input';
+import {Reducer as customer} from '../../../../../dist/es';
 
 export default combineReducers({
-  customerName,
+  customer,
   // .. other reducers
 });

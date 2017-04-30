@@ -1,6 +1,5 @@
 import React from 'react';
-import Input from '../../../../../dist/es/Input/containers/InputContainer';
-// import Input from '../../../../../src/Input/containers/InputContainer';
+import {Input} from '../../../../../dist/es';
 import './Application.scss';
 
 const Root = () =>
