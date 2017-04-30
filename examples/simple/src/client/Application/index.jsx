@@ -22,4 +22,5 @@ render(Root);
 
 if (module.hot) {
   module.hot.accept('./Root', () => render(Root));
+  module.hot.accept('../reducers', () => store.replaceReducer(require('../reducers/index').default)); // eslint-disable-line
 }
