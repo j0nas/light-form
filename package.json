@@ -1,8 +1,12 @@
 {
-  "name": "react-npm-module-boilerplate",
+  "name": "light-form",
   "version": "1.0.0",
-  "description": "Boilerplate for quickly creating and publishing React components to npm.",
+  "description": "Lightweight React/Redux form state management",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j0nas/light-form.git"
+  },
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "scripts": {

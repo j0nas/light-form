@@ -3,3 +3,5 @@
 .idea
 src
 examples
+.babelrc
+README.md

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input} from '../../../../../dist/es';
+import { Input } from 'light-form';
 import './Application.scss';
 
 const Root = () =>
