@@ -32,7 +32,7 @@ app.use(historyApiFallback());
 app.use(devMiddleware);
 app.use(webpackHotMiddleware(compiler));
 
-app.get('*', (req, res) =>
+app.get('/', (req, res) =>
   res.send(devMiddleware.fileSystem.readFileSync(generatedIndexHtmlPath)));
 
 const port = process.env.PORT || 3000;

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { Reducer as customer } from 'light-form';
+import customer from '../../../../../src/Input/ducks/Input';
 
 export default combineReducers({
   customer,
