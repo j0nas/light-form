@@ -25,15 +25,15 @@ module.exports = {
     },
     module: {
         rules: [
-            //{
-            //    test: /\.jsx?$/,
-            //    loader: 'eslint-loader',
-            //    include: paths.src,
-            //    enforce: 'pre',
-            //    options: {
-            //        fix: true,
-            //    },
-            //},
+            {
+                test: /\.jsx?$/,
+                loader: 'eslint-loader',
+                include: paths.src,
+                enforce: 'pre',
+                options: {
+                    fix: true,
+                },
+            },
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
