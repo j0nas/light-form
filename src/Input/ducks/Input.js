@@ -29,7 +29,6 @@ export const createBoundType = namespace =>
     (UPDATE_INPUT_VALUE + '.' + namespace);
 
 export const boundReducer = namespace => {
-
     if (window) {
         window.__LIGHT_FORM__ = [...(window.__LIGHT_FORM__ || false), namespace];
     } else {

@@ -21,15 +21,17 @@ const InputContainer = connect(
         // FIXME we want to flip this and prefix w/default ns if no ns is found
         // FIXME this means we need to have a way to get the default ns
 
-        const name = (hasNamespace ? '' : namespaceOfField + '.') + own.name;
+        // TODO remove the concept of default ns, only export boundreducer
 
+        const name = (hasNamespace ? namespaceOfField + '.' : '') + own.name;
+
+        console.log("state:", state);
         const value2 = get(state, name);
         console.log("value", name);
         return ({
             // Pass in received props first so props defined here overwrite any preexisting ones.
             ...own,
-            ...state,
-            value: value2, // FIXME use lodash.get to retreive correct state info
+            value: value2,
             onChange: event => {
                 const value = event.target.type === 'checkbox'
                     ? event.target.checked
