@@ -1,6 +1,7 @@
-import set from "lodash.set";
+import dotProp from "dot-prop";
+import objectAssign from "object-assign";
 
-export const UPDATE_INPUT_VALUE = 'UPDATE_INPUT_VALUE';
+const UPDATE_INPUT_VALUE = 'UPDATE_INPUT_VALUE';
 
 export const changeField = (type, name, value) => ({
     type,
@@ -9,35 +10,16 @@ export const changeField = (type, name, value) => ({
 });
 
 const calculateNewState = (state, name, value) => {
-    const isNestedField = name.indexOf('.') > -1;
-    return isNestedField
-        ? {...set(state, name, value)}
-        : {...state, [name]: value};
-};
-
-export default (state = {}, action) => {
-    switch (action.type) {
-        case UPDATE_INPUT_VALUE:
-            return calculateNewState(state, action.name, action.value);
-
-        default:
-            return state;
-    }
+    const stateCopy = objectAssign({}, state);
+    dotProp.set(stateCopy, name, value);
+    return stateCopy;
 };
 
 export const createBoundType = namespace =>
     (UPDATE_INPUT_VALUE + '.' + namespace);
 
-export const boundReducer = namespace => {
-    if (window) {
-        window.__LIGHT_FORM__ = [...(window.__LIGHT_FORM__ || false), namespace];
-    } else {
-        if (process.env.NODE_ENV !== 'production') {
-            console.error("light-form: window is not defined");
-        }
-    }
-
-    return (state = {}, action) => {
+export default namespace =>
+    (state = {}, action) => {
         const boundType = createBoundType(namespace);
         switch (action.type) {
             case boundType:
@@ -48,4 +30,3 @@ export const boundReducer = namespace => {
                 return state;
         }
     };
-};

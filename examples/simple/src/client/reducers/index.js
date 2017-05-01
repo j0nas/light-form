@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import customer, { boundReducer } from '../../../../../src/Input/ducks/Input';
+import reducer from '../../../../../src/Input/ducks/Input';
 
 export default combineReducers({
-  customer,
-  address: boundReducer('address'),
+  customer: reducer('customer'),
+  address: reducer('address'),
   // .. other reducers
 });

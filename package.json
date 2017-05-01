@@ -26,8 +26,8 @@
   "author": "Jonas Jensen <jonas.jensen@msn.com> (http://jonas-jsensen.com)",
   "license": "ISC",
   "dependencies": {
-    "lodash.get": "^4.4.2",
-    "lodash.set": "^4.3.2",
+    "dot-prop": "^4.1.1",
+    "object-assign": "^4.1.1",
     "prop-types": "^15.0.0"
   },
   "peerDependencies": {

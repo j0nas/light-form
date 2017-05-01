@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import get from "lodash.get";
+import dotProp from "dot-prop";
 import Input from "../components/Input";
-import {changeField, createBoundType, UPDATE_INPUT_VALUE} from "../ducks/Input";
+import {changeField, createBoundType} from "../ducks/Input";
 
 const getNamespaceOfField = fieldName =>
     fieldName.indexOf('.') > -1
@@ -14,41 +14,20 @@ const InputContainer = connect(
         dispatch => ({
             dispatch,
         }),
-    (state, dispatch, own) => {
-        const namespaceOfField = getNamespaceOfField(own.name);
-        const hasNamespace = window.__LIGHT_FORM__.indexOf(namespaceOfField);
+    (state, dispatch, own) => ({
+        // Pass in received props first so defined props overwrite any preexisting ones.
+        ...own,
+        value: dotProp.get(state, own.name, ''),
+        onChange: event => {
+            const value = event.target.type === 'checkbox'
+                ? event.target.checked
+                : event.target.value;
 
-        // FIXME we want to flip this and prefix w/default ns if no ns is found
-        // FIXME this means we need to have a way to get the default ns
-
-        // TODO remove the concept of default ns, only export boundreducer
-
-        const name = (hasNamespace ? namespaceOfField + '.' : '') + own.name;
-
-        console.log("state:", state);
-        const value2 = get(state, name);
-        console.log("value", name);
-        return ({
-            // Pass in received props first so props defined here overwrite any preexisting ones.
-            ...own,
-            value: value2,
-            onChange: event => {
-                const value = event.target.type === 'checkbox'
-                    ? event.target.checked
-                    : event.target.value;
-
-                const namespace = getNamespaceOfField(own.name);
-                const fieldHasNamespace =
-                    window.__LIGHT_FORM__ &&
-                    window.__LIGHT_FORM__.indexOf(namespace) > -1;
-                const type = fieldHasNamespace
-                    ? createBoundType(namespace)
-                    : UPDATE_INPUT_VALUE;
-
-                return dispatch.dispatch(changeField(type, own.name, value));
-            },
-        });
-    },
+            const namespace = getNamespaceOfField(own.name);
+            const type = createBoundType(namespace);
+            return dispatch.dispatch(changeField(type, own.name, value));
+        },
+    }),
 )(Input);
 
 InputContainer.propTypes = {
