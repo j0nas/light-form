@@ -26,6 +26,7 @@
   "author": "Jonas Jensen <jonas.jensen@msn.com> (http://jonas-jsensen.com)",
   "license": "ISC",
   "dependencies": {
+    "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "prop-types": "^15.0.0"
   },
