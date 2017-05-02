@@ -15,11 +15,12 @@ const render = Component =>
           <Component />
         </Provider>
       </AppContainer>,
-        document.getElementById('root'),
+      document.getElementById('root'),
     );
 
 render(Root);
 
 if (module.hot) {
-  module.hot.accept('./Root', () => render(Root));
+  module.hot.accept('./Root', () => render(require('./Root').default)); // eslint-disable-line
+  module.hot.accept('../reducers', () => store.replaceReducer(require('../reducers/index').default)); // eslint-disable-line
 }

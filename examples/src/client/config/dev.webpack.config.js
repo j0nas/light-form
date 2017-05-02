@@ -5,7 +5,6 @@ const paths = require('./paths');
 const htmlPluginConfig = {
     inject: true,
     template: paths.htmlPluginTemplate,
-    favicon: false,
 };
 
 module.exports = {
@@ -37,9 +36,11 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    cacheDirectory: true,
+                loader: 'babel-loader?cacheDirectory',
+                options: {
+                    babelrc: false,
+                    presets: ['es2015', 'react'],
+                    plugins: [require('babel-plugin-transform-object-rest-spread'), require('react-hot-loader/babel')],
                 },
             },
             {

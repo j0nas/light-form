@@ -1,17 +1,25 @@
-export const UPDATE_INPUT_VALUE = 'UPDATE_INPUT_VALUE';
+import dotProp from "dot-prop-immutable";
 
-export const changeField = (name, value) => ({
-    type: UPDATE_INPUT_VALUE,
+const UPDATE_INPUT_VALUE = 'UPDATE_INPUT_VALUE';
+
+export const changeField = (type, name, value) => ({
+    type,
     name,
     value,
 });
 
-export default (state = {}, action) => {
-    switch (action.type) {
-        case UPDATE_INPUT_VALUE:
-            return {...state, [action.name]: action.value};
+export const createBoundType = namespace =>
+    (UPDATE_INPUT_VALUE + '.' + namespace);
 
-        default:
-            return state;
-    }
-};
+export default namespace =>
+    (state = {}, action) => {
+        const boundType = createBoundType(namespace);
+        switch (action.type) {
+            case boundType:
+                const fieldPathWithoutNamespace = action.name.replace(namespace + '.', '');
+                return dotProp.set(state, fieldPathWithoutNamespace, action.value);
+
+            default:
+                return state;
+        }
+    };
