@@ -1,6 +1,6 @@
-Simple example
+Examples
 =
-> Simple example app to demonstrate light-form
+> Examples to demonstrate light-form usage
 
 To run this example, perform the following steps:
 
