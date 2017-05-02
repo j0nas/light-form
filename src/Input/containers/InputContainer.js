@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import dotProp from "dot-prop";
+import dotProp from "dot-prop-immutable";
 import Input from "../components/Input";
 import {changeField, createBoundType} from "../ducks/Input";
 

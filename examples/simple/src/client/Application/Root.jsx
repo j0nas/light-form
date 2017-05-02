@@ -7,8 +7,10 @@ const Root = () =>
     <Input className="input" name="customer.name.first" placeholder="First name" />
     <Input className="input" name="customer.name.middle" placeholder="Middle name" />
     <Input className="input" name="customer.name.last" placeholder="Last name" />
+    <br />
 
-    <Input className="input" name="customer.phoneNumber" type="number" placeholder="Phone number" />
+    <Input className="input" name="customer.phone.prefix" type="number" placeholder="Phone prefix" />
+    <Input className="input" name="customer.phone.number.mobile" type="number" placeholder="Mobile number" />
     <br />
 
     <Input className="input" name="address.firstLine" placeholder="Address 1" />
