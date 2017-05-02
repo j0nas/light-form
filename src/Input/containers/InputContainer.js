@@ -17,7 +17,7 @@ const InputContainer = connect(
     (state, dispatch, own) => ({
         // Pass in received props first so defined props overwrite any preexisting ones.
         ...own,
-        value: dotProp.get(state, own.name, ''),
+        value: own.name && dotProp.get(state, own.name)|| '',
         onChange: event => {
             const value = event.target.type === 'checkbox'
                 ? event.target.checked
@@ -31,7 +31,16 @@ const InputContainer = connect(
 )(Input);
 
 InputContainer.propTypes = {
-    name: PropTypes.string.isRequired,
+    name: (props, propName, componentName) => {
+        const error = "Invalid property 'name' supplied to '" + componentName + "'. ";
+        if (typeof props[propName] !== 'string') {
+            return new Error(error + "Value must be a valid string.");
+        }
+
+        if (!/.+\..+/.test(props[propName])) {
+            return new Error(error + "Value must contain a dot-delimited namespace. (eg. name=\"customer.firstname\")");
+        }
+    },
 };
 
 export default InputContainer;
