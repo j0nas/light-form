@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import dotProp from "dot-prop-immutable";
 import Input from "../components/Input";
@@ -10,14 +9,14 @@ const getNamespaceOfField = fieldName =>
         : fieldName;
 
 const InputContainer = connect(
-        state => state,
-        dispatch => ({
-            dispatch,
-        }),
+    state => state,
+    dispatch => ({
+        dispatch,
+    }),
     (state, dispatch, own) => ({
         // Pass in received props first so defined props overwrite any preexisting ones.
         ...own,
-        value: own.name && dotProp.get(state, own.name)|| '',
+        value: own.name && dotProp.get(state, own.name) || '',
         onChange: event => {
             const value = event.target.type === 'checkbox'
                 ? event.target.checked
