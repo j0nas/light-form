@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '../../../../src/Input/containers/InputContainer';
+import StateAsText from '../components/StateAsText';
 
 export default () =>
   <div>
@@ -10,4 +11,6 @@ export default () =>
     <Input type="tel" name="nested.customer.phone.prefix" placeholder="Country prefix" />
     <Input type="tel" name="nested.customer.phone.numbers.mobile" placeholder="Mobile phone" />
     <Input type="tel" name="nested.customer.phone.numbers.home" placeholder="Home phone" />
+
+    <StateAsText nodeName="nested" />
   </div>;

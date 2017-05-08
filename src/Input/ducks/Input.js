@@ -11,8 +11,8 @@ export const changeField = (type, name, value) => ({
 export const createBoundType = namespace =>
     (UPDATE_INPUT_VALUE + '.' + namespace);
 
-export default namespace =>
-    (state = {}, action) => {
+export default (namespace, defaultState) =>
+    (state = defaultState || {}, action) => {
         const boundType = createBoundType(namespace);
         switch (action.type) {
             case boundType:

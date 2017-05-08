@@ -55,6 +55,13 @@ module.exports = {
                 ],
             },
             {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader?sourceMap',
+                ],
+            },
+            {
                 test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)(\?.*)?$/,
                 include: paths.src,
                 loader: 'url-loader',
