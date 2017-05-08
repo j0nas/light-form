@@ -8,4 +8,8 @@ Input.propTypes = {
     name: PropTypes.string.isRequired,
 };
 
+Input.defaultProps = {
+    type: 'text',
+};
+
 export default Input;
