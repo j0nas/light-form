@@ -10,5 +10,6 @@ export default combineReducers({
   basic: reducer('basic'),
   nested: reducer('nested'),
   defaultState: reducer('defaultState', defaultState),
+  interceptOnChange: reducer('interceptOnChange'),
   // .. other reducers
 });
