@@ -13,11 +13,8 @@ const InputContainer = connect(
     dispatch => ({
         dispatch,
     }),
-    (state, dispatch, own) => ({
-        // Pass in received props first so defined props overwrite any preexisting ones.
-        ...own,
-        value: own.name && dotProp.get(state, own.name) || '',
-        onChange: event => {
+    (state, dispatch, own) => {
+        const onChange = event => {
             const value = event.target.type === 'checkbox'
                 ? event.target.checked
                 : event.target.value;
@@ -25,8 +22,15 @@ const InputContainer = connect(
             const namespace = getNamespaceOfField(own.name);
             const type = createBoundType(namespace);
             return dispatch.dispatch(changeField(type, own.name, value));
-        },
-    }),
+        };
+
+        return ({
+            // Pass in received props first so defined props overwrite any preexisting ones.
+            ...own,
+            value: own.name && dotProp.get(state, own.name) || '',
+            onChange: event => onChange(own.onChange && own.onChange(event) || event),
+        });
+    },
 )(Input);
 
 InputContainer.propTypes = {
