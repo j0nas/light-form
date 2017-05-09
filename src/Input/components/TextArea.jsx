@@ -8,8 +8,4 @@ TextArea.propTypes = {
     name: PropTypes.string.isRequired,
 };
 
-TextArea.defaultProps = {
-    type: 'text',
-};
-
 export default TextArea;
