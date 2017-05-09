@@ -1,10 +1,16 @@
 Light-form
 =========================
-> Lightweight React/Redux form state management
+> Lightweight React/Redux forms with no boilerplate
 
-light-form allows easily making forms with a standard React/Redux setup. 
-Its goal is to reduce the amount of boilerplate code needed for standard form
-handling whilst still letting you be in control over the resulting form data state.
+`light-form` simplifies creating forms with a standard React/Redux setup. It does so by providing 
+input components that have Redux action dispatchers attached under the hood, and a reducer to 
+handle those actions. 
+
+The cool thing this accomplishes is abstracting the boilerplate code required to handle input, 
+without adding custom magic. You can treat the provided components as if they were standard React 
+input components and pass them any props that standard components would accept. 
+Take a look at the example to see what I mean, or check out the 
+[live demo](http://light-form.surge.sh).
 
 ## Installation
 ```
@@ -12,7 +18,7 @@ npm install --save light-form
 ```
 
 ## Example
-In your form. import `Input` and declare your fields. Note the fields' `name` props.
+In your form, import `Input` and declare your fields. Note the fields' dot-delimited `name` props.
 ```jsx harmony
 // MyCustomerForm.jsx
 import React from 'react';
@@ -64,4 +70,15 @@ would give us this state tree:
 except for `onChange` and `value` which are handled internally.
 
 ## Examples
-[Be sure to check the examples here.](https://github.com/j0nas/light-form/tree/master/examples)
+[Check out a live demo here.](http://light-form.surge.sh)  
+[See the examples.](https://github.com/j0nas/light-form/tree/master/examples)
+
+
+## Defining custom onChange handlers
+If the `onChange` prop of a field is defined, the passed function will be invoked prior
+to invoking the internal onChange function. This allows for complete control of the onChange
+handling and outcome. The function passed to the prop will receive the event object as a parameter
+which you are free to copy and mutate as you please. Return this event object (or a copy) as a part 
+of the custom onChange function, or `null` if you want to abort handling the event.  
+
+See the "Intercept OnChange" example for more details.
