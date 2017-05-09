@@ -15,7 +15,7 @@ export default () =>
     <label htmlFor="falseValue">False</label>
     <Input type="radio" name="inputTypes.radio" id="falseValue" value="false" />
     <br />
-    <TextArea name="inputTypes.textArea" />
+    <TextArea name="inputTypes.textArea" placeholder="Text area" />
 
     <StateAsText nodeName="inputTypes" />
   </div>;
