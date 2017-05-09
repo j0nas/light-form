@@ -24,10 +24,14 @@ const InputContainer = connect(
             return dispatch.dispatch(changeField(type, own.name, value));
         };
 
-        return ({
+      const value =
+        (own.type === "radio" && own.value) ||
+        (own.name && dotProp.get(state, own.name) || '');
+
+      return ({
             // Pass in received props first so defined props overwrite any preexisting ones.
             ...own,
-            value: own.name && dotProp.get(state, own.name) || '',
+            value: value,
             onChange: event => onChange(own.onChange && own.onChange(event) || event),
         });
     },
