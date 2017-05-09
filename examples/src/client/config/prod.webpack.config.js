@@ -61,6 +61,6 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin(htmlPluginConfig),
         new webpack.DefinePlugin({'process.env.NODE_ENV': '"production"'}),
-        new webpack.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin(),
     ],
 };
