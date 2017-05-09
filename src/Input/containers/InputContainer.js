@@ -1,6 +1,5 @@
 import {connect} from "react-redux";
 import dotProp from "dot-prop-immutable";
-import Input from "../components/Input";
 import {changeField, createBoundType} from "../ducks/Input";
 
 const getNamespaceOfField = fieldName =>
@@ -8,7 +7,8 @@ const getNamespaceOfField = fieldName =>
         ? fieldName.split('.')[0]
         : fieldName;
 
-const InputContainer = connect(
+const InputContainer = component =>
+  connect(
     state => state,
     dispatch => ({
         dispatch,
@@ -35,7 +35,7 @@ const InputContainer = connect(
             onChange: event => onChange(own.onChange && own.onChange(event) || event),
         });
     },
-)(Input);
+)(component);
 
 InputContainer.propTypes = {
     name: (props, propName, componentName) => {

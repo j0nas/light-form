@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../../../../src/Input/containers/InputContainer';
+import { Input, TextArea } from '../../../../src';
 import StateAsText from '../components/StateAsText';
 
 export default () =>
@@ -14,6 +14,8 @@ export default () =>
     <br />
     <label htmlFor="falseValue">False</label>
     <Input type="radio" name="inputTypes.radio" id="falseValue" value="false" />
+    <br />
+    <TextArea name="inputTypes.textArea" />
 
     <StateAsText nodeName="inputTypes" />
   </div>;
