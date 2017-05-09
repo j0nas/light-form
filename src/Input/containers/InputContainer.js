@@ -32,7 +32,10 @@ const InputContainer = component =>
             // Pass in received props first so defined props overwrite any preexisting ones.
             ...own,
             value: value,
-            onChange: event => onChange(own.onChange && own.onChange(event) || event),
+            onChange: event => {
+              const processedEvent = own.onChange ? own.onChange(event) : event;
+              return processedEvent && onChange(processedEvent);
+            },
         });
     },
 )(component);
