@@ -5,7 +5,8 @@
   "description": "Simple light-form example",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server"
+    "start": "node src/server",
+    "build": "webpack --config ./src/client/config/prod.webpack.config.js"
   },
   "author": "Jonas Jensen",
   "license": "ISC",
