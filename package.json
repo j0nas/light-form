@@ -11,6 +11,8 @@
   "jsnext:main": "dist/es/index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage",
     "prepublish": "npm run build",
     "build:clean": "rimraf ./dist",
     "build:umd": "cross-env NODE_ENV=umd babel ./src --out-dir ./dist/umd",
@@ -45,8 +47,8 @@
     "enzyme": "^2.8.2",
     "jest": "^20.0.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
+    "react-test-renderer": "^15.5.4",
     "redux": "^3.6.0",
     "rimraf": "^2.6.1"
   }
