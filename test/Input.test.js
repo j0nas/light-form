@@ -1,15 +1,10 @@
 import React from 'react';
-import {mount} from 'enzyme';
-import {Input} from '../src';
+import Input from '../src/Input/components/Input';
+import {shallow} from 'enzyme'
 
-test('basic test', () => {
-  expect(1 === 1).toBe(true);
-});
-
-describe('Input component', function () {
-  it('renders an Input with no type specified as a text input', () => {
-    const wrapper = mount(<Input name="test.input" id="myInput" />);
-    const input = wrapper.find('#myInput');
-    expect(input.type()).toBe('text');
+describe('Input component', () => {
+  it('renders with type=text as default when no type is specified', () => {
+    const input = shallow(<Input name="test.input" id="myInput" />);
+    expect(input.props().type).toBe('text');
   });
 });
