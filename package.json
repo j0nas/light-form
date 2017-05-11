@@ -10,7 +10,7 @@
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest && codecov",
+    "test": "cross-env NODE_ENV=test jest",
     "test-ci": "cross-env NODE_ENV=test jest --config config.json --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --coverage",
