@@ -2,8 +2,8 @@ Light-form
 =========================
 > Lightweight React/Redux forms with no boilerplate
 
-[![Build status](https://ci.appveyor.com/api/projects/status/dndnekw66ncllmxy?svg=true)](https://ci.appveyor.com/project/j0nas/light-form)
-
+[![CircleCI](https://circleci.com/gh/j0nas/light-form/tree/master.svg?style=shield)](https://circleci.com/gh/j0nas/light-form/tree/master)
+[![Coverage Status](https://coveralls.io/repos/github/j0nas/light-form/badge.svg?branch=feature%2Fadd-other-input-components)](https://coveralls.io/github/j0nas/light-form?branch=feature%2Fadd-other-input-components)
 
 `light-form` simplifies creating forms with a standard React/Redux setup. It does so by providing 
 input components that have Redux action dispatchers attached under the hood, and a reducer to 
