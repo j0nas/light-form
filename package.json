@@ -10,7 +10,7 @@
   "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest && ./node_modules/.bin/codecov",
+    "test": "cross-env NODE_ENV=test jest && codecov",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --coverage",
     "prepublish": "npm run build",
