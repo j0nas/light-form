@@ -11,6 +11,7 @@
   "jsnext:main": "dist/es/index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest && codecov",
+    "test-ci": "cross-env NODE_ENV=test jest --config config.json --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --coverage",
     "prepublish": "npm run build",
