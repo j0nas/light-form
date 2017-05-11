@@ -8,3 +8,4 @@ describe('Input component', () => {
     expect(input.props().type).toBe('text');
   });
 });
+
