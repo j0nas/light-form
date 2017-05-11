@@ -2,6 +2,9 @@ Light-form
 =========================
 > Lightweight React/Redux forms with no boilerplate
 
+[![Build status](https://ci.appveyor.com/api/projects/status/dndnekw66ncllmxy?svg=true)](https://ci.appveyor.com/project/j0nas/light-form)
+
+
 `light-form` simplifies creating forms with a standard React/Redux setup. It does so by providing 
 input components that have Redux action dispatchers attached under the hood, and a reducer to 
 handle those actions. 
