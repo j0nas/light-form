@@ -78,4 +78,18 @@ describe('InputContainer', () => {
     expect(onChangeCalled).toBe(true);
     expect(store.getState().test.name).toBe('changed');
   });
+
+  it('decorates provided components with an onChange', () => {
+    const InputContainerComponent = InputContainer(Input);
+    const containerWrapper = mount(
+      <ConfiguredProvider customStore={store}>
+        <InputContainerComponent name="test.radio" type="radio"/>
+      </ConfiguredProvider>,
+    );
+
+    const radio = containerWrapper.find('input');
+    radio.simulate('change', {target: {name: 'test.radio', value: 'changed'}});
+
+    expect(store.getState().test.radio).toBe('changed');
+  });
 });
