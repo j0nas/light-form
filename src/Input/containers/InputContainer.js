@@ -2,13 +2,8 @@ import {connect} from "react-redux";
 import dotProp from "dot-prop-immutable";
 import {changeField, createBoundType} from "../ducks/Input";
 
-function getNamespaceOfField(fieldName) {
-  if (!fieldName.indexOf('.')) {
-    throw new Error('Filed ' + fieldName + ' does not nave a dot-delimited name property');
-  }
-
-  return fieldName.split('.')[0];
-}
+const getFieldNamespace = nameProp =>
+  (nameProp.split('.')[0]);
 
 const InputContainer = component =>
   connect(
@@ -22,7 +17,7 @@ const InputContainer = component =>
                 ? event.target.checked
                 : event.target.value;
 
-            const namespace = getNamespaceOfField(own.name);
+            const namespace = getFieldNamespace(own.name);
             const type = createBoundType(namespace);
             return dispatch.dispatch(changeField(type, own.name, value));
         };
