@@ -1,19 +1,17 @@
 import React from "react";
 import {mount} from "enzyme";
-import {Input as ExportedInput} from "../../../src";
 import Input from "../../../src/Input/components/Input";
 import InputContainer from "../../../src/Input/containers/InputContainer";
 import ConfiguredProvider, {generateStore} from "../../util/fakes/ConfiguredProvider";
 
-const mountComponent = (configObject = {}) => {
+const mountComponent = ({name, type, onChange, store} = {}) => {
   const InputContainerComponent = InputContainer(Input);
-
   return mount(
-    <ConfiguredProvider customStore={configObject.store}>
+    <ConfiguredProvider customStore={store}>
       <InputContainerComponent
-        name={configObject.name || 'test.input'}
-        {...(configObject.type && {type: configObject.type})}
-        {...(configObject.onChange && {onChange: configObject.onChange})}
+        name={name || 'test.input'}
+        {...(type && {type})}
+        {...(onChange && {onChange})}
       />
     </ConfiguredProvider>,
   );
@@ -39,11 +37,11 @@ describe('InputContainer', () => {
   });
 
   it('returns a boolean when input with type=checkbox is changed', () => {
-    const input = mountComponent({name: 'test.checkbox', type:'checkbox', store}).find('input').first();
+    const input = mountComponent({name: 'test.checkbox', type: 'checkbox', store}).find('input').first();
     expect(input.prop('checked')).toBeFalsy();
 
     const mockCheckboxEvent = value =>
-      ({target: {name: 'test.checkbox', type:'checkbox', checked: value}});
+      ({target: {name: 'test.checkbox', type: 'checkbox', checked: value}});
 
     input.simulate('change', mockCheckboxEvent(true));
     expect(store.getState().test.checkbox).toEqual(true);
