@@ -8,10 +8,11 @@ const reducers = combineReducers({
   test: reducer('test'),
 });
 
-export const store = createStore(reducers);
+export const generateStore = () =>
+  (createStore(reducers));
 
 const ConfiguredProvider = ({children, customStore}) =>
-  <Provider store={customStore || store} children={children} />;
+  <Provider store={customStore || generateStore()} children={children} />;
 
 ConfiguredProvider.propTypes = {
   children: PropTypes.node.isRequired,

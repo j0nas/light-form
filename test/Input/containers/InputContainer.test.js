@@ -3,9 +3,13 @@ import {mount} from "enzyme";
 import {Input as ExportedInput} from "../../../src";
 import Input from "../../../src/Input/components/Input";
 import InputContainer from "../../../src/Input/containers/InputContainer";
-import ConfiguredProvider, {store} from "../../util/fakes/ConfiguredProvider";
+import ConfiguredProvider, {generateStore} from "../../util/fakes/ConfiguredProvider";
 
 describe('InputContainer', () => {
+  let store;
+
+  beforeEach(() => store = generateStore());
+
   it('decorates provided components with an onChange', () => {
     const InputComponent = <Input name='group.field'/>;
     const inputWrapper = mount(InputComponent);
