@@ -5,12 +5,15 @@ import Input from "../../../src/Input/components/Input";
 import InputContainer from "../../../src/Input/containers/InputContainer";
 import ConfiguredProvider, {generateStore} from "../../util/fakes/ConfiguredProvider";
 
-const mountComponent = (name, store) => {
+const mountComponent = (configObject = {}) => {
   const InputContainerComponent = InputContainer(Input);
 
   return mount(
-    <ConfiguredProvider customStore={store}>
-      <InputContainerComponent name={name || 'test.input'} />
+    <ConfiguredProvider customStore={configObject.store}>
+      <InputContainerComponent
+        name={configObject.name || 'test.input'}
+        {...(configObject.type && {type: configObject.type})}
+      />
     </ConfiguredProvider>,
   );
 };
@@ -29,13 +32,7 @@ describe('InputContainer', () => {
   });
 
   it('dispatches updates when it is changed', () => {
-    const wrapper = mount(
-      <ConfiguredProvider customStore={store}>
-        <ExportedInput name="test.name"/>
-      </ConfiguredProvider>,
-    );
-
-    const input = wrapper.find('input').first();
+    const input = mountComponent({name: 'test.name', store}).find('input').first();
     input.simulate('change', {target: {name: 'test.name', value: 'test'}});
     expect(store.getState()).toEqual(expect.objectContaining({test: {name: 'test'}}));
   });
