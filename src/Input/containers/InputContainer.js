@@ -2,10 +2,13 @@ import {connect} from "react-redux";
 import dotProp from "dot-prop-immutable";
 import {changeField, createBoundType} from "../ducks/Input";
 
-const getNamespaceOfField = fieldName =>
-    fieldName.indexOf('.') > -1
-        ? fieldName.split('.')[0]
-        : fieldName;
+function getNamespaceOfField(fieldName) {
+  if (!fieldName.indexOf('.')) {
+    throw new Error('Filed ' + fieldName + ' does not nave a dot-delimited name property');
+  }
+
+  return fieldName.split('.')[0];
+}
 
 const InputContainer = component =>
   connect(
