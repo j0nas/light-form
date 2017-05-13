@@ -23,31 +23,28 @@ describe('InputContainer', () => {
   beforeEach(() => store = generateStore());
 
   it('decorates provided components with an onChange', () => {
-    const InputComponent = <Input name='group.field'/>;
-    const inputWrapper = mount(InputComponent);
-
-    expect(inputWrapper.find('input').prop('onChange')).toBeUndefined();
+    expect(mount(<Input name='group.field'/>).find('input').prop('onChange')).toBeUndefined();
     expect(mountComponent().find('input').prop('onChange')).toBeInstanceOf(Function);
   });
 
   it('dispatches updates when it is changed', () => {
-    const input = mountComponent({name: 'test.name', store}).find('input').first();
-    input.simulate('change', {target: {name: 'test.name', value: 'test'}});
-    expect(store.getState()).toEqual(expect.objectContaining({test: {name: 'test'}}));
+    const input = mountComponent({store}).find('input').first();
+    input.simulate('change', {target: {name: 'test.input', value: 'test'}});
+    expect(store.getState()).toEqual(expect.objectContaining({test: {input: 'test'}}));
   });
 
   it('returns a boolean when input with type=checkbox is changed', () => {
-    const input = mountComponent({name: 'test.checkbox', type: 'checkbox', store}).find('input').first();
+    const input = mountComponent({type: 'checkbox', store}).find('input');
     expect(input.prop('checked')).toBeFalsy();
 
     const mockCheckboxEvent = value =>
-      ({target: {name: 'test.checkbox', type: 'checkbox', checked: value}});
+      ({target: {name: 'test.input', type: 'checkbox', checked: value}});
 
     input.simulate('change', mockCheckboxEvent(true));
-    expect(store.getState().test.checkbox).toEqual(true);
+    expect(store.getState().test.input).toEqual(true);
 
     input.simulate('change', mockCheckboxEvent(false));
-    expect(store.getState().test.checkbox).toEqual(false);
+    expect(store.getState().test.input).toEqual(false);
   });
 
   it('calls custom onChange handlers', () => {
@@ -58,17 +55,17 @@ describe('InputContainer', () => {
       return e;
     }
 
-    const input = mountComponent({name: 'test.name', onChange, store}).find('input').first();
-    input.simulate('change', {target: {name: 'test.name', value: 'changed'}});
+    const input = mountComponent({onChange, store}).find('input').first();
+    input.simulate('change', {target: {name: 'test.input', value: 'changed'}});
 
     expect(onChangeCalled).toBe(true);
-    expect(store.getState().test.name).toBe('changed');
+    expect(store.getState().test.input).toBe('changed');
   });
 
   it('decorates provided components with an onChange', () => {
-    const radio = mountComponent({name: 'test.radio', type: 'radio', store}).find('input');
-    radio.simulate('change', {target: {name: 'test.radio', value: 'changed'}});
+    const radio = mountComponent({type: 'radio', store}).find('input');
+    radio.simulate('change', {target: {name: 'test.input', value: 'changed'}});
 
-    expect(store.getState().test.radio).toBe('changed');
+    expect(store.getState().test.input).toBe('changed');
   });
 });
