@@ -1,9 +1,12 @@
 import React from "react";
-import {createStore} from "redux";
+import {createStore, combineReducers} from "redux";
 import {Provider} from "react-redux";
 import reducer from "../../../src/Input/ducks/Input";
 
-const store = createStore(reducer);
+const reducers = combineReducers({
+  test: reducer('test'),
+});
+const store = createStore(reducers);
 
-export default children =>
-  <Provider children={children} store={store} />
+export default ({children}) =>
+  <Provider store={store} children={children} />;
