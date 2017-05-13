@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {createStore, combineReducers} from "redux";
 import {Provider} from "react-redux";
 import reducer from "../../../src/Input/ducks/Input";
@@ -6,7 +7,19 @@ import reducer from "../../../src/Input/ducks/Input";
 const reducers = combineReducers({
   test: reducer('test'),
 });
-const store = createStore(reducers);
 
-export default ({children}) =>
-  <Provider store={store} children={children} />;
+export const store = createStore(reducers);
+
+const ConfiguredProvider = ({children, customStore}) =>
+  <Provider store={customStore || store} children={children} />;
+
+ConfiguredProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+  customStore: PropTypes.object,
+};
+
+ConfiguredProvider.defaultProps = {
+  customStore: undefined,
+};
+
+export default ConfiguredProvider;
