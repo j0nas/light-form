@@ -5,6 +5,16 @@ import Input from "../../../src/Input/components/Input";
 import InputContainer from "../../../src/Input/containers/InputContainer";
 import ConfiguredProvider, {generateStore} from "../../util/fakes/ConfiguredProvider";
 
+const mountComponent = (name, store) => {
+  const InputContainerComponent = InputContainer(Input);
+
+  return mount(
+    <ConfiguredProvider customStore={store}>
+      <InputContainerComponent name={name || 'test.input'} />
+    </ConfiguredProvider>,
+  );
+};
+
 describe('InputContainer', () => {
   let store;
 
@@ -15,15 +25,7 @@ describe('InputContainer', () => {
     const inputWrapper = mount(InputComponent);
 
     expect(inputWrapper.find('input').prop('onChange')).toBeUndefined();
-
-    const InputContainerComponent = InputContainer(Input);
-    const containerWrapper = mount(
-      <ConfiguredProvider>
-        <InputContainerComponent name="group.name"/>
-      </ConfiguredProvider>,
-    );
-
-    expect(containerWrapper.find('input').prop('onChange')).not.toBeUndefined();
+    expect(mountComponent().find('input').prop('onChange')).toBeInstanceOf(Function);
   });
 
   it('dispatches updates when it is changed', () => {
