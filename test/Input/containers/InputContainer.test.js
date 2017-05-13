@@ -13,6 +13,7 @@ const mountComponent = (configObject = {}) => {
       <InputContainerComponent
         name={configObject.name || 'test.input'}
         {...(configObject.type && {type: configObject.type})}
+        {...(configObject.onChange && {onChange: configObject.onChange})}
       />
     </ConfiguredProvider>,
   );
@@ -38,13 +39,7 @@ describe('InputContainer', () => {
   });
 
   it('returns a boolean when input with type=checkbox is changed', () => {
-    const wrapper = mount(
-      <ConfiguredProvider customStore={store}>
-        <ExportedInput name="test.checkbox" type="checkbox"/>
-      </ConfiguredProvider>,
-    );
-
-    const input = wrapper.find('input').first();
+    const input = mountComponent({name: 'test.checkbox', type:'checkbox', store}).find('input').first();
     expect(input.prop('checked')).toBeFalsy();
 
     const mockCheckboxEvent = value =>
@@ -65,13 +60,7 @@ describe('InputContainer', () => {
       return e;
     }
 
-    const wrapper = mount(
-      <ConfiguredProvider customStore={store}>
-        <ExportedInput name="test.name" onChange={onChange}/>
-      </ConfiguredProvider>,
-    );
-
-    const input = wrapper.find('input').first();
+    const input = mountComponent({name: 'test.name', onChange, store}).find('input').first();
     input.simulate('change', {target: {name: 'test.name', value: 'changed'}});
 
     expect(onChangeCalled).toBe(true);
@@ -79,14 +68,7 @@ describe('InputContainer', () => {
   });
 
   it('decorates provided components with an onChange', () => {
-    const InputContainerComponent = InputContainer(Input);
-    const containerWrapper = mount(
-      <ConfiguredProvider customStore={store}>
-        <InputContainerComponent name="test.radio" type="radio"/>
-      </ConfiguredProvider>,
-    );
-
-    const radio = containerWrapper.find('input');
+    const radio = mountComponent({name: 'test.radio', type: 'radio', store}).find('input');
     radio.simulate('change', {target: {name: 'test.radio', value: 'changed'}});
 
     expect(store.getState().test.radio).toBe('changed');
