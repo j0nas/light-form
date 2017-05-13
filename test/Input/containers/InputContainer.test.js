@@ -53,4 +53,25 @@ describe('InputContainer', () => {
     input.simulate('change', mockCheckboxEvent(false));
     expect(store.getState().test.checkbox).toEqual(false);
   });
+
+  it('calls custom onChange handlers', () => {
+    let onChangeCalled = false;
+
+    function onChange(e) {
+      onChangeCalled = true;
+      return e;
+    }
+
+    const wrapper = mount(
+      <ConfiguredProvider customStore={store}>
+        <ExportedInput name="test.name" onChange={onChange}/>
+      </ConfiguredProvider>,
+    );
+
+    const input = wrapper.find('input').first();
+    input.simulate('change', {target: {name: 'test.name', value: 'changed'}});
+
+    expect(onChangeCalled).toBe(true);
+    expect(store.getState().test.name).toBe('changed');
+  });
 });
