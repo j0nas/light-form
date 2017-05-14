@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import dotProp from "dot-prop-immutable";
 import {changeField, createBoundType} from "../ducks/Input";
+import propTypes from "./InputContainer.proptypes";
 
 const getFieldNamespace = nameProp =>
   (nameProp.split('.')[0]);
@@ -38,19 +39,6 @@ const InputContainer = component =>
     },
 )(component);
 
-export const validateNameProp = (props, propName, componentName) => {
-  const error = "Invalid property 'name' supplied to '" + componentName + "'. ";
-  if (typeof props[propName] !== 'string') {
-    return new Error(error + "Value must be a valid string.");
-  }
-
-  if (!/.+\..+/.test(props[propName])) {
-    return new Error(error + "Value must contain a dot-delimited namespace. (eg. name=\"customer.firstname\")");
-  }
-};
-
-InputContainer.propTypes = {
-    name: validateNameProp,
-};
+InputContainer.propTypes = propTypes;
 
 export default InputContainer;
