@@ -1,6 +1,6 @@
 Light-form
 =========================
-> Lightweight React/Redux forms with no boilerplate
+> Lightweight library for lightweight React/Redux forms
 
 [![CircleCI](https://circleci.com/gh/j0nas/light-form/tree/master.svg?style=shield)](https://circleci.com/gh/j0nas/light-form/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/j0nas/light-form/badge.svg?branch=feature%2Fadd-other-input-components)](https://coveralls.io/github/j0nas/light-form?branch=feature%2Fadd-other-input-components)
