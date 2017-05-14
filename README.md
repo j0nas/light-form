@@ -3,7 +3,7 @@ Light-form
 > Lightweight library for lightweight React/Redux forms
 
 [![CircleCI](https://circleci.com/gh/j0nas/light-form/tree/master.svg?style=shield)](https://circleci.com/gh/j0nas/light-form/tree/master)
-[![Coverage Status](https://coveralls.io/repos/github/j0nas/light-form/badge.svg?branch=feature%2Fadd-other-input-components)](https://coveralls.io/github/j0nas/light-form?branch=feature%2Fadd-other-input-components)
+[![Coverage Status](https://coveralls.io/repos/github/j0nas/light-form/badge.svg)](https://coveralls.io/github/j0nas/light-form)
 
 **light-form** provides components that already have `onChange` and `value` props attached,
  so you don't have to manually define them, and a reducer to handle the onChange actions.
