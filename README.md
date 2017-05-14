@@ -1,15 +1,26 @@
 Light-form
 =========================
-> Lightweight library for lightweight React/Redux forms
+> Lightweight library for boilerplate-free React/Redux forms
 
 [![CircleCI](https://circleci.com/gh/j0nas/light-form/tree/master.svg?style=shield)](https://circleci.com/gh/j0nas/light-form/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/j0nas/light-form/badge.svg)](https://coveralls.io/github/j0nas/light-form)
 
-**light-form** provides components that have `onChange` and `value` props attached,
- so you don't have to manually define them, and a reducer to handle the onChange actions.
+**light-form** removes the need to write boilerplate code for React/Redux forms. 
+ 
+ exports three components: `Input`, `Select` and `TextArea`.
+When you pass them a name property, they will dispatch onChange actions
+to update their respective reducers, without  
+Given a `name` property
 
-You can treat the provided components as if they were standard React `<input />` 
-components and pass them any props that standard input components would accept. 
+
+**light-form** provides `Input`, `Select` and `TextArea` components that have `onChange` 
+and `value` props attached, so you don't have to manually define them, and a `Reducer` 
+to handle the onChange actions.
+
+You treat the provided components as if they are standard React input components.
+Any props you pass them are applied. Eg., the `<Input />` is just a wrapper for 
+a standard `<input />`, and will accept any props that would be valid for an 
+`<input />`.
 
 Take a look at the examples folder, or check out the [live demo][surge].
 
