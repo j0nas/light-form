@@ -19,8 +19,6 @@ const validateOnChangeProp = (props, propName, componentName) => {
   if (typeof props[propName] !== 'function') {
     return new Error(errorMessage(propName, componentName, 'Value must be a function.'));
   }
-
-  // TODO test that onChange return an event
 };
 
 export default {
