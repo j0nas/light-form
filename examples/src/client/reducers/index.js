@@ -8,6 +8,7 @@ const defaultState = {
 
 export default combineReducers({
   basic: reducer('basic'),
+  inputTypes: reducer('inputTypes'),
   nested: reducer('nested'),
   defaultState: reducer('defaultState', defaultState),
   interceptOnChange: reducer('interceptOnChange'),

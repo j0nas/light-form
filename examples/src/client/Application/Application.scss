@@ -1,7 +1,11 @@
-input {
+input:not([type="radio"]) {
   display: block;
   padding: 5px;
   margin: 10px;
+}
+
+label {
+  display: inline;
 }
 
 h1 {
