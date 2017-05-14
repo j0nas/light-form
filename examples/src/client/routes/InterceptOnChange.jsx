@@ -1,6 +1,6 @@
 import React from 'react';
 import currencyFormatter from 'currency-formatter';
-import Input from '../../../../src/Input/containers/InputContainer';
+import { Input } from '../../../../src';
 import StateAsText from '../components/StateAsText';
 
 const onChange = (event) => {

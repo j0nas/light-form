@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../../../../src/Input/containers/InputContainer';
+import { Input } from '../../../../src';
 import StateAsText from '../components/StateAsText';
 
 export default () =>

@@ -4,7 +4,7 @@ const applicationFolder = path.resolve(__dirname, '..', '..', 'client', 'Applica
 const srcDir = path.resolve(__dirname, '..', '..');
 
 module.exports = {
-  buildPath: path.join(__dirname, '..', '..', '..', 'public'),
+  buildPath: path.join(__dirname, '..', '..', '..', 'build'),
   entry: path.join(applicationFolder, 'index.jsx'),
   src: srcDir,
   publicAssets: path.join(srcDir, 'client', 'public'),
