@@ -3,7 +3,7 @@ import { Input } from '../../../../src';
 import StateAsText from '../components/StateAsText';
 
 export default () =>
-  <div>
+  (<div>
     <Input name="nested.customer.name.first" placeholder="First name" />
     <Input name="nested.customer.name.middle" placeholder="Middle name" />
     <Input name="nested.customer.name.last" placeholder="Last name" />
@@ -13,4 +13,4 @@ export default () =>
     <Input type="tel" name="nested.customer.phone.numbers.home" placeholder="Home phone" />
 
     <StateAsText nodeName="nested" />
-  </div>;
+  </div>);

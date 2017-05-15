@@ -11,3 +11,11 @@ label {
 h1 {
   font-size: 22px;
 }
+
+.valid {
+  background-color: lightgreen !important;
+}
+
+.invalid {
+  background-color: lightpink !important;
+}

@@ -3,7 +3,7 @@ import { Input, Select, TextArea } from '../../../../src';
 import StateAsText from '../components/StateAsText';
 
 export default () =>
-  <div>
+  (<div>
     <p>
       <Input name="inputTypes.text" placeholder="Text (default)" />
       <Input name="inputTypes.number" placeholder="Number" type="number" />
@@ -29,4 +29,4 @@ export default () =>
       </Select>
     </p>
     <StateAsText nodeName="inputTypes" />
-  </div>;
+  </div>);

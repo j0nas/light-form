@@ -6,10 +6,11 @@ import InputTypes from '../routes/InputTypes';
 import Nested from '../routes/Nested';
 import DefaultState from '../routes/DefaultState';
 import InterceptOnChange from '../routes/InterceptOnChange';
+import OnStateChange from '../routes/OnStateChange';
 import './Application.scss';
 
 const Root = () =>
-  <Router>
+  (<Router>
     <div>
       <nav>
         <Link to="/">Basic</Link>
@@ -21,6 +22,8 @@ const Root = () =>
         <Link to="/defaultstate">Default state</Link>
         <br />
         <Link to="/interceptonchange">Intercept OnChange</Link>
+        <br />
+        <Link to="/onstatechange">OnStateChange/form validation</Link>
       </nav>
 
       <Route exact path="/" component={Basic} />
@@ -28,7 +31,8 @@ const Root = () =>
       <Route exact path="/nested" component={Nested} />
       <Route exact path="/defaultstate" component={DefaultState} />
       <Route exact path="/interceptonchange" component={InterceptOnChange} />
+      <Route exact path="/onstatechange" component={OnStateChange} />
     </div>
-  </Router>;
+  </Router>);
 
 export default Root;
