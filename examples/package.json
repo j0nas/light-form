@@ -13,6 +13,7 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "currency-formatter": "^1.2.1",
+    "email-validator": "^1.0.7",
     "express": "^4.15.2",
     "light-form": "^2.2.0",
     "promise-polyfill": "^6.0.2",

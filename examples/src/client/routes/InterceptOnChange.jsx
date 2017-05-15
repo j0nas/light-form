@@ -17,10 +17,10 @@ const formatCurrency = (event) => {
 };
 
 export default () =>
-  <div>
+  (<div>
     <Input name="interceptOnChange.firstname" placeholder="First name" onChange={onChange} />
     <Input name="interceptOnChange.lastname" placeholder="Last name" onChange={onChange} />
     <br />
     <Input name="interceptOnChange.amountOwed" placeholder="Amount owed" onChange={formatCurrency} />
     <StateAsText nodeName="interceptOnChange" />
-  </div>;
+  </div>);
