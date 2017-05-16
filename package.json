@@ -21,10 +21,16 @@
     "build": "npm run build:clean && npm run build:umd && npm run build:es"
   },
   "keywords": [
-    "npm",
-    "publish",
+    "light-form",
+    "form",
     "react",
-    "boilerplate"
+    "redux",
+    "abstraction",
+    "state",
+    "simple",
+    "lightweight",
+    "reactjs",
+    "react-redux"
   ],
   "author": "Jonas Jensen <jonas.jensen@msn.com> (http://jonas-jsensen.com)",
   "license": "ISC",
