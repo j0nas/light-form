@@ -5,24 +5,17 @@ Light-form
 [![CircleCI](https://circleci.com/gh/j0nas/light-form/tree/master.svg?style=shield)](https://circleci.com/gh/j0nas/light-form/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/j0nas/light-form/badge.svg)](https://coveralls.io/github/j0nas/light-form)
 
-**light-form** removes the need to write boilerplate code for React/Redux forms. 
- 
- exports three components: `Input`, `Select` and `TextArea`.
-When you pass them a name property, they will dispatch onChange actions
-to update their respective reducers, without  
-Given a `name` property
+**light-form** lets you create boilerplate-free React/Redux forms in four simple steps:
+* in your view, `import {Input, Select, TextArea} from "light-form";`
+* pass the components a `name` prop in the form of `[formName].[fieldName]`
+  * (eg. `<Input name="myForm.myField" />`)
+* in your root reducer, `import {Reducer} from "light-form";` 
+* pass it `[formName]` and add it to your store under the same name  
+  * (eg. `combineReducers({ myForm: Reducer('myForm'), ... })`)
 
+And that's it, your form is ready!
 
-**light-form** provides `Input`, `Select` and `TextArea` components that have `onChange` 
-and `value` props attached, so you don't have to manually define them, and a `Reducer` 
-to handle the onChange actions.
-
-You treat the provided components as if they are standard React input components.
-Any props you pass them are applied. Eg., the `<Input />` is just a wrapper for 
-a standard `<input />`, and will accept any props that would be valid for an 
-`<input />`.
-
-Take a look at the examples folder, or check out the [live demo][surge].
+Check out the [live demo][surge] and the [examples]. 
 
 ## Installation
 ```
@@ -30,7 +23,6 @@ npm install --save light-form
 ```
 
 ## Example
-In your form, import `Input` and declare your fields. Note the fields' dot-delimited `name` props.
 ```jsx harmony
 // CustomerForm.jsx
 import React from 'react';
@@ -60,12 +52,37 @@ const rootReducer = combineReducers({
 
 export default rootReducer;
 ```
-Compared to the [equivalent][vanilla gist] form in *vanilla* React, we see **light-form**
-removing the need to write boring boilerplate code for simple functionality. This benefit
-scales with increased complexity, such as with multi-part forms. 
 
 ## How it works
 **light-form** exports `<Input />`, `<Select />` and `<TextArea />` components.
+These components come with `value` and `onChange` props attached under the hood.
+Those props are wired up to the reducer with the matching name, eg. `formName` in the 
+example above. 
+
+## Why it's useful
+**light-form** aims to combine ease of use with flexibility. The following are it's strong points.
+
+### Reducing boilerplate
+Mapping and attaching `value` and `onChange` props is done similarly in most use cases, 
+so light-form abstracts that away. The same applies for the reducer which handles those 
+props. Rather than typing out repetitive code, we can focus on the domain aspects which 
+makes our forms unique. To demonstrate this, compare the example above to the [equivalent]
+[vanilla gist] form in "vanilla" React/Redux. This benefit scales with increased 
+complexity, such as with multi-part forms. See *Nested* demo/example.  
+
+### No abstraction trade-off  
+You can opt to have complete control of the form's events. The onChange prop and the reducer 
+action handler have hooks which you can use to intercept the changes and perform mutations. 
+This allows for have fine-tuned control where necessary, just like with vanilla React/Redux. 
+See *InterceptOnChange* and *OnStateChange* demo/examples.
+
+### No ad-hoc magic  
+You can treat the provided components almost as standard [uncontrolled React components]
+[uncontrolled], except they're in sync with the Redux store by default.
+Any props you pass them are applied. Eg., the provided `<Input />` is just a wrapper for 
+a standard `<input />`, and will accept any props that would be valid for an `<input />`.
+
+## How it works
 These wrap their equivalent React fields (`<input />`, `<select />`, `<textarea />`) 
 and will pass them any received props, except for `onChange` and `value`:
 *  `value` is handled in the reducer and should never be explicitly set
@@ -102,3 +119,4 @@ See the "Intercept OnChange" example for more details.
 [vanilla gist]: https://gist.github.com/j0nas/d597b3e7f6a6718f9c7c8ea0734d8c47
 [surge]: http://light-form.surge.sh
 [examples]: https://github.com/j0nas/light-form/tree/master/examples
+[uncontrolled]: https://facebook.github.io/react/docs/uncontrolled-components.html
