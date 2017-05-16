@@ -76,9 +76,9 @@ The `onChange` prop is intercepted by the components' container, if defined. See
 onChange handlers' below.
 
 ## Why it's useful
-**light-form** aims to combine ease of use with flexibility. The following are it's strong points.
+**light-form** aims to combine ease of use with flexibility. The following are its strong points.
 
-### Reducing boilerplate
+### Reduced boilerplate
 Mapping and attaching `value` and `onChange` props is done similarly in most use cases, 
 so light-form abstracts that away. The same applies for the reducer which handles those 
 props. Rather than typing out repetitive code, we can focus on the domain aspects which 
