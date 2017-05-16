@@ -2,6 +2,7 @@
 *.log
 .idea
 src
+test
 examples
 .babelrc
 README.md
