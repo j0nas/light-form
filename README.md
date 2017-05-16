@@ -80,7 +80,7 @@ custom onChange handlers' below.
 points.
 
 ### Reduced boilerplate
-Mapping and attaching `value` and `onChange` props is done similarly in most use cases, 
+Mapping and attaching `value` and `onChange` props is done the same way in most use cases, 
 so light-form abstracts that away. The same applies for the reducer which handles those 
 props. Rather than typing out repetitive code, we can focus on the domain aspects which 
 makes our forms unique. To demonstrate this, compare the example above to the 
