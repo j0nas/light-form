@@ -7,3 +7,6 @@ examples
 .babelrc
 README.md
 coverage
+circle.yml
+.gitattributes
+.npmignore
