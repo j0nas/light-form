@@ -93,11 +93,12 @@ This allows for have fine-tuned control where necessary, just like with vanilla 
 See *InterceptOnChange* and *OnStateChange* demo/examples.
 
 ### No ad-hoc magic  
-You can treat the provided components almost as standard [uncontrolled React components]
-[uncontrolled], except they're in sync with the Redux store by default.
-Any props you pass them are applied. Eg., the provided `<Input />` is just a wrapper for 
-a standard `<input />`, and will accept any props that would be valid for an `<input />`.
-`value` and `onChange` are the exceptions, see "Defining custom onChange handlers".
+You can treat the provided components almost as standard 
+[uncontrolled React components][uncontrolled], except they're in sync with the Redux store 
+by default. Any props you pass them are applied. Eg., the provided `<Input />` is just a 
+wrapper for a standard `<input />`, and will accept any props that would be valid for 
+`<input />`. `value` and `onChange` are the exceptions, see "Defining custom onChange 
+handlers".
 
 ## Defining custom onChange handlers
 If the `onChange` prop of a field is defined, the passed function will be invoked prior
