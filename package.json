@@ -1,6 +1,6 @@
 {
   "name": "light-form",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Lightweight React/Redux form state management",
   "main": "dist/index.js",
   "repository": {
