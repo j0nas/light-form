@@ -72,11 +72,12 @@ us this state tree:
 ```
 
 The components' `value` prop is handled in the reducer and should never be explicitly set. 
-The `onChange` prop is intercepted by the components' container, if defined. See 'Defining custom 
-onChange handlers' below.
+The `onChange` prop is intercepted by the components' container, if defined. See 'Defining 
+custom onChange handlers' below.
 
 ## Why it's useful
-**light-form** aims to combine ease of use with flexibility. The following are its strong points.
+**light-form** aims to combine ease of use with flexibility. The following are its strong 
+points.
 
 ### Reduced boilerplate
 Mapping and attaching `value` and `onChange` props is done similarly in most use cases, 
@@ -97,16 +98,28 @@ You can treat the provided components almost as standard
 [uncontrolled React components][uncontrolled], except they're in sync with the Redux store 
 by default. Any props you pass them are applied. Eg., the provided `<Input />` is just a 
 wrapper for a standard `<input />`, and will accept any props that would be valid for 
-`<input />`. `value` and `onChange` are the exceptions, see "Defining custom onChange 
-handlers".
+`<input />`. `value` and `onChange` are the exceptions, see "Defining custom event handlers".
 
-## Defining custom onChange handlers
-If the `onChange` prop of a field is defined, the passed function will be invoked prior
-to invoking the internal onChange function. This allows for complete control of the onChange
-handling and outcome. The function passed to the prop will receive the event object as a parameter
-which you are free to copy and mutate as you please. Return this event object (or a copy) as a part 
-of the custom onChange function, or a falsy value if you want to abort handling the event. See 
-*Intercept OnChange* demo/example.
+## Defining custom event handlers
+The exported components and reducer have hooks which you can pass functions to. This allows
+for fine-grained control of the events passed to the components and the resulting state
+on reducer changes.
+
+### Custom onChange handlers for fields
+If the `onChange` prop of a field is defined, the passed function will be invoked, and the 
+return of that function will be passed to the internal onChange function. This allows for 
+complete control of the onChange handling and outcome. The function passed to the prop will 
+receive the event object as a parameter which you are free to copy and mutate as you please. 
+Return this event object (or a copy) as a part of the custom onChange function, or a falsy 
+value if you want to abort handling the event. See *Intercept OnChange* demo/example.
+
+### Custom onStateChange handler for reducer
+In addition to an optional *defaultState* second parameter, the Reducer accepts an
+`onStateChange` function as an optional third parameter. If present, the passed function 
+will be invoked after a state update has occurred, and the function will receive the updated 
+state as a parameter. The function is free to mutate this state as needed. The function is 
+expected to return an object, which will be applied as the new state for the reducer. See 
+*OnStateChange* example.
 
 [vanilla gist]: https://gist.github.com/j0nas/d597b3e7f6a6718f9c7c8ea0734d8c47
 [surge]: http://light-form.surge.sh
