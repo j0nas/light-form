@@ -7,6 +7,7 @@ import Nested from '../routes/Nested';
 import DefaultState from '../routes/DefaultState';
 import InterceptOnChange from '../routes/InterceptOnChange';
 import OnStateChange from '../routes/OnStateChange';
+import AsyncValidation from '../routes/AsyncValidation';
 import './Application.scss';
 
 const Root = () =>
@@ -24,6 +25,8 @@ const Root = () =>
         <Link to="/interceptonchange">Intercept OnChange</Link>
         <br />
         <Link to="/onstatechange">OnStateChange/form validation</Link>
+        <br />
+        <Link to="/asyncvalidation">Async validation</Link>
       </nav>
 
       <Route exact path="/" component={Basic} />
@@ -32,6 +35,7 @@ const Root = () =>
       <Route exact path="/defaultstate" component={DefaultState} />
       <Route exact path="/interceptonchange" component={InterceptOnChange} />
       <Route exact path="/onstatechange" component={OnStateChange} />
+      <Route exact path="/asyncvalidation" component={AsyncValidation} />
     </div>
   </Router>);
 
