@@ -6,7 +6,12 @@ import StateAsText from '../components/StateAsText';
 
 const emailValidationForm = ({ valid }) =>
   (<div>
-    <Input name="onStateChange.email" placeholder="Valid email adress" className={valid ? 'valid' : 'invalid'} />
+    <Input
+      name="onStateChange.email"
+      aria-label="Valid email adress"
+      placeholder="Valid email adress"
+      className={valid ? 'valid' : 'invalid'}
+    />
     <StateAsText nodeName="onStateChange" />
   </div>);
 

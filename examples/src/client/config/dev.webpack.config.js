@@ -55,6 +55,16 @@ module.exports = {
                 ],
             },
             {
+                test: /\.scss$/,
+                exclude: paths.src,
+                use: [
+                    'style-loader',
+                    'css-loader?sourceMap',
+                    'resolve-url-loader',
+                    'sass-loader?sourceMap',
+                ],
+            },
+            {
                 test: /\.css$/,
                 use: [
                     'style-loader',

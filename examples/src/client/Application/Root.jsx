@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import 'sakura.css';
 import Basic from '../routes/Basic';
 import InputTypes from '../routes/InputTypes';
 import Nested from '../routes/Nested';
@@ -29,6 +28,7 @@ const Root = () =>
         <Link to="/asyncvalidation">Async validation</Link>
       </nav>
 
+      <br />
       <Route exact path="/" component={Basic} />
       <Route exact path="/inputtypes" component={InputTypes} />
       <Route exact path="/nested" component={Nested} />

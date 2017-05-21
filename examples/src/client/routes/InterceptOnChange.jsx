@@ -18,9 +18,15 @@ const formatCurrency = (event) => {
 
 export default () =>
   (<div>
-    <Input name="interceptOnChange.firstname" placeholder="First name" onChange={onChange} />
-    <Input name="interceptOnChange.lastname" placeholder="Last name" onChange={onChange} />
+    <Input name="interceptOnChange.firstname" aria-label="First name" placeholder="First name" onChange={onChange} />
     <br />
-    <Input name="interceptOnChange.amountOwed" placeholder="Amount owed" onChange={formatCurrency} />
+    <Input name="interceptOnChange.lastname" aria-label="First name" placeholder="Last name" onChange={onChange} />
+    <br />
+    <Input
+      name="interceptOnChange.amountOwed"
+      aria-label="Amount owed"
+      placeholder="Amount owed"
+      onChange={formatCurrency}
+    />
     <StateAsText nodeName="interceptOnChange" />
   </div>);
