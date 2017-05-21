@@ -42,7 +42,7 @@ export default connect(
   state => ({
     field1: state.async.field1,
     field1Invalid: state.asyncValidation.field1Invalid,
-    field3Disabled: state.async.field2 < 10,
+    field3Disabled: state.async.field2 <= 10,
   }),
   dispatch => ({
     validate: value => asyncValidationAction(value, dispatch),
