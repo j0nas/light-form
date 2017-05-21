@@ -28,15 +28,14 @@ const Root = () =>
         <Link to="/asyncvalidation">Async validation</Link>
       </nav>
 
-      <p>
-        <Route exact path="/" component={Basic} />
-        <Route exact path="/inputtypes" component={InputTypes} />
-        <Route exact path="/nested" component={Nested} />
-        <Route exact path="/defaultstate" component={DefaultState} />
-        <Route exact path="/interceptonchange" component={InterceptOnChange} />
-        <Route exact path="/onstatechange" component={OnStateChange} />
-        <Route exact path="/asyncvalidation" component={AsyncValidation} />
-      </p>
+      <br />
+      <Route exact path="/" component={Basic} />
+      <Route exact path="/inputtypes" component={InputTypes} />
+      <Route exact path="/nested" component={Nested} />
+      <Route exact path="/defaultstate" component={DefaultState} />
+      <Route exact path="/interceptonchange" component={InterceptOnChange} />
+      <Route exact path="/onstatechange" component={OnStateChange} />
+      <Route exact path="/asyncvalidation" component={AsyncValidation} />
     </div>
   </Router>);
 
