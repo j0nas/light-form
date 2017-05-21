@@ -1,5 +1,16 @@
+
+$color-blossom: #333;
+$color-fade: blue;
+
+$color-bg: #f9f9f9;
+$color-bg-alt: #f1f1f1;
+
+$color-text: #4a4a4a;
+$font-size-base: 1.8rem;
+
+@import "~sakura.css/scss/_main.scss";
+
 input:not([type="radio"]) {
-  display: block;
   padding: 5px;
   margin: 10px;
 }

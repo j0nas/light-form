@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import 'sakura.css';
 import Basic from '../routes/Basic';
 import InputTypes from '../routes/InputTypes';
 import Nested from '../routes/Nested';
@@ -29,13 +28,15 @@ const Root = () =>
         <Link to="/asyncvalidation">Async validation</Link>
       </nav>
 
-      <Route exact path="/" component={Basic} />
-      <Route exact path="/inputtypes" component={InputTypes} />
-      <Route exact path="/nested" component={Nested} />
-      <Route exact path="/defaultstate" component={DefaultState} />
-      <Route exact path="/interceptonchange" component={InterceptOnChange} />
-      <Route exact path="/onstatechange" component={OnStateChange} />
-      <Route exact path="/asyncvalidation" component={AsyncValidation} />
+      <p>
+        <Route exact path="/" component={Basic} />
+        <Route exact path="/inputtypes" component={InputTypes} />
+        <Route exact path="/nested" component={Nested} />
+        <Route exact path="/defaultstate" component={DefaultState} />
+        <Route exact path="/interceptonchange" component={InterceptOnChange} />
+        <Route exact path="/onstatechange" component={OnStateChange} />
+        <Route exact path="/asyncvalidation" component={AsyncValidation} />
+      </p>
     </div>
   </Router>);
 
