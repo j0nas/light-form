@@ -1,9 +1,11 @@
 import React from 'react';
 import { Input } from '../../../../src';
 import StateAsText from '../components/StateAsText';
+import ExampleDescription from '../components/ExampleDescription/ExampleDescription';
 
 export default () =>
   (<div>
+    <ExampleDescription route="Nested" description="Demonstrates nested state shapes through field name properties" />
     <Input aria-label="firstname" name="nested.customer.name.first" placeholder="First name" />
     <Input aria-label="middlename" name="nested.customer.name.middle" placeholder="Middle name" />
     <Input aria-label="lastname" name="nested.customer.name.last" placeholder="Last name" />

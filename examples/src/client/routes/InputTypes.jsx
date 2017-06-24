@@ -1,9 +1,11 @@
 import React from 'react';
 import { Input, Select, TextArea } from '../../../../src';
 import StateAsText from '../components/StateAsText';
+import ExampleDescription from '../components/ExampleDescription/ExampleDescription';
 
 export default () =>
   (<div>
+    <ExampleDescription route="InputTypes" description="Demonstrates how to use all the different input types" />
     <Input name="inputTypes.text" aria-label="text" placeholder="Text (default)" /><br />
     <Input name="inputTypes.number" aria-label="number" placeholder="Number" type="number" /><br />
     <Input name="inputTypes.email" aria-label="email" placeholder="Supports all W3 types" type="email" /><br />

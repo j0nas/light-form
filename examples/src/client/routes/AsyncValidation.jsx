@@ -5,9 +5,14 @@ import { Input } from '../../../../src';
 import StateAsText from '../components/StateAsText';
 
 import { asyncValidationAction } from '../reducers/asyncValidation';
+import ExampleDescription from '../components/ExampleDescription/ExampleDescription';
+
+const description = 'Demonstrates synchronous and asynchronous validation. ' +
+    'Async validation of Field1 is triggered when pressing "Save".';
 
 const AsyncValidationForm = ({ field1Invalid, field3Disabled, validate }) =>
   (<div>
+    <ExampleDescription route="AsyncValidation" description={description} />
     <label htmlFor="async.field1">
       Field1*
       <Input name="async.field1" className={field1Invalid ? 'invalid' : ''} />
