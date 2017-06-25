@@ -5,7 +5,7 @@ import ExampleDescription from '../components/ExampleDescription/ExampleDescript
 
 export default () =>
   (<div>
-    <ExampleDescription route="Basic" description="Demonstrates basic use and how corresponding state tree" />
+    <ExampleDescription route="Basic" description="Demonstrates basic use and corresponding state tree" />
     <label htmlFor="basic.firstname">
       First name
       <Input name="basic.firstname" />
