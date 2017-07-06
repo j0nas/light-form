@@ -5,6 +5,7 @@ import InputTypes from '../routes/InputTypes';
 import Nested from '../routes/Nested';
 import DefaultState from '../routes/DefaultState';
 import InterceptOnChange from '../routes/InterceptOnChange';
+import CustomReducerActions from '../routes/CustomReducerActions';
 import OnStateChange from '../routes/OnStateChange';
 import AsyncValidation from '../routes/AsyncValidation';
 import './Application.scss';
@@ -23,6 +24,8 @@ const Root = () =>
         <br />
         <Link to="/interceptonchange">Intercept OnChange</Link>
         <br />
+        <Link to="/customreduceractions">Custom reducer actions</Link>
+        <br />
         <Link to="/onstatechange">OnStateChange/form validation</Link>
         <br />
         <Link to="/asyncvalidation">Async validation</Link>
@@ -34,6 +37,7 @@ const Root = () =>
       <Route exact path="/nested" component={Nested} />
       <Route exact path="/defaultstate" component={DefaultState} />
       <Route exact path="/interceptonchange" component={InterceptOnChange} />
+      <Route exact path="/customreduceractions" component={CustomReducerActions} />
       <Route exact path="/onstatechange" component={OnStateChange} />
       <Route exact path="/asyncvalidation" component={AsyncValidation} />
     </div>
