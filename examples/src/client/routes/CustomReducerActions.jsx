@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Input } from '../../../../src';
 import StateAsText from '../components/StateAsText';
 import ExampleDescription from '../components/ExampleDescription/ExampleDescription';
-import { resetForm } from '../reducers/resetForm';
+import { resetForm } from '../reducers/customReducerActions';
 
 const CustomReducerActionsForm = ({ reset }) =>
   (<div>

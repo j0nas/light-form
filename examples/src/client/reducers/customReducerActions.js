@@ -1,6 +1,6 @@
 import reducer from '../../../../src/Input/ducks/Input';
 
-export const RESET_FORM = 'RESET_FORM';
+const RESET_FORM = 'RESET_FORM';
 
 export const resetForm = () => ({
   type: RESET_FORM,

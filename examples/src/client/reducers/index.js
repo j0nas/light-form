@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { validate } from 'email-validator';
 import reducer from '../../../../src/Input/ducks/Input';
-import customReducerActions from './resetForm';
+import customReducerActions from './customReducerActions';
 import asyncValidation from './asyncValidation';
 
 const defaultState = {
