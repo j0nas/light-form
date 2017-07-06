@@ -26,6 +26,6 @@ export default (namespace, defaultState, onStateChange, actionHandlers) =>
         };
 
         return reducer[action.type]
-            ? reducer[action.type]()
+            ? reducer[action.type](state, action)
             : state;
     };
