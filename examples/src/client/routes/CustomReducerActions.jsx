@@ -4,27 +4,40 @@ import { connect } from 'react-redux';
 import { Input } from '../../../../src';
 import StateAsText from '../components/StateAsText';
 import ExampleDescription from '../components/ExampleDescription/ExampleDescription';
-import { resetForm } from '../reducers/customReducerActions';
+import { resetForm, multiplyValues } from '../reducers/customReducerActions';
 
-const CustomReducerActionsForm = ({ reset }) =>
+const CustomReducerActionsForm = ({ reset, multiply }) =>
   (<div>
     <ExampleDescription
       route="CustomReducerActions"
       description="Demonstrates triggering custom actions in reducer"
     />
-    <Input name="customReducerActions.firstname" aria-label="Firstname" placeholder="Firstname" />
-    <Input name="customReducerActions.lastname" aria-label="Lastname" placeholder="Lastname" />
-    <button onClick={reset}>Clear form</button>
+    <Input
+      name="customReducerActions.firstNumber"
+      type="number"
+      aria-label="First number"
+      placeholder="First number"
+    />
+    <Input
+      name="customReducerActions.secondNumber"
+      type="number"
+      aria-label="Second number"
+      placeholder="Second number"
+    />
+    <div><button onClick={multiply}>Multiply values</button></div>
+    <div><button onClick={reset}>Clear form</button></div>
     <StateAsText nodeName="customReducerActions" />
   </div>);
 
 CustomReducerActionsForm.propTypes = {
   reset: PropTypes.func.isRequired,
+  multiply: PropTypes.func.isRequired,
 };
 
 export default connect(
-    null,
-    dispatch => ({
-      reset: () => dispatch(resetForm()),
-    }),
+  null,
+  dispatch => ({
+    reset: () => dispatch(resetForm()),
+    multiply: () => dispatch(multiplyValues()),
+  }),
 )(CustomReducerActionsForm);
