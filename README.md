@@ -111,7 +111,7 @@ return of that function will be passed to the internal onChange function. This a
 complete control of the onChange handling and outcome. The function passed to the prop will 
 receive the event object as a parameter which you are free to copy and mutate as you please. 
 Return this event object (or a copy) as a part of the custom onChange function, or a falsy 
-value if you want to abort handling the event. See *Intercept OnChange* demo/example.
+value if you want to abort handling the event. See *Intercept OnChange* example.
 
 ### Custom onStateChange handler for reducer
 In addition to an optional *defaultState* second parameter, the Reducer accepts an
@@ -120,6 +120,13 @@ will be invoked after a state update has occurred, and the function will receive
 state as a parameter. The function is free to mutate this state as needed. The function is 
 expected to return an object, which will be applied as the new state for the reducer. See 
 *OnStateChange* example.
+
+### Custom reducer actions
+The Reducer accepts an optional `actionHandlers` object as the fourth parameter. This is
+expected to be an object with Redux action names as keys and state migration functions 
+(like in conventional reducers) as values. The functions will receive `state` and `action`
+parameters, being the reducer's state and the dispatched action respectively. The value
+returned from the function will be the new state. See *Custom reducer actions* example.
 
 [vanilla gist]: https://gist.github.com/j0nas/d597b3e7f6a6718f9c7c8ea0734d8c47
 [surge]: http://light-form.surge.sh
