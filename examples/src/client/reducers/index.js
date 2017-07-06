@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { validate } from 'email-validator';
 import reducer from '../../../../src/Input/ducks/Input';
+import customReducerActions from './customReducerActions';
 import asyncValidation from './asyncValidation';
 
 const defaultState = {
@@ -25,6 +26,7 @@ export default combineReducers({
   inputTypes: reducer('inputTypes'),
   nested: reducer('nested'),
   defaultState: reducer('defaultState', defaultState),
+  customReducerActions,
   interceptOnChange: reducer('interceptOnChange'),
   onStateChange: reducer('onStateChange', {}, onStateChange),
   async: reducer('async', asyncDefaultState),

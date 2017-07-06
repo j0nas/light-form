@@ -1,6 +1,6 @@
 {
   "name": "light-form",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Lightweight React/Redux form state management",
   "main": "dist/index.js",
   "repository": {
@@ -48,7 +48,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-jest": "^20.0.1",
-    "babel-loader": "^7.0.0",
+    "babel-loader": "^7.1.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.5",
     "babel-preset-es2015": "^6.24.1",
@@ -57,14 +57,14 @@
     "cross-env": "^5.0.0",
     "enzyme": "^2.8.2",
     "gzip-size-cli": "^2.0.0",
-    "jest": "^20.0.1",
+    "jest": "^20.0.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
     "react-test-renderer": "^15.5.4",
-    "redux": "^3.6.0",
+    "redux": "^3.7.1",
     "rimraf": "^2.6.1",
-    "webpack": "^2.5.1"
+    "webpack": "^3.0.0"
   },
   "jest": {
     "coverageDirectory": "./coverage/",

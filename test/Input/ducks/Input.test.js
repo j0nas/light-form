@@ -50,4 +50,18 @@ describe('Input duck', () => {
       valueSetReactivelyToExpectedStateChange: true,
     });
   });
+
+  it('applies custom action handlers if provided', () => {
+    const TEST_CUSTOM_TYPE = 'TEST_CUSTOM_TYPE';
+    const actionHandlers = {
+      [TEST_CUSTOM_TYPE]: (state, action) => ({...state, addedValue: action.testValue })
+    };
+
+    const initialState = {initialValue: 'test'};
+    const reducer = Input(namespace, initialState, null, actionHandlers);
+    const store = createStore(reducer);
+
+    store.dispatch({type: TEST_CUSTOM_TYPE, testValue: 'newValue'});
+    expect(store.getState()).toEqual({initialValue: 'test', addedValue: 'newValue'});
+  });
 });
